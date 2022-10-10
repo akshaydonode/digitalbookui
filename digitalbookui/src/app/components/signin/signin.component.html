@@ -1,0 +1,28 @@
+
+<form [formGroup]="authorForm">
+    <div class="imgcontainer">
+        <div class="container">
+            <label for="username">
+                <b>Username</b>
+            </label>
+            <input formControlName="authorEmail" type="text" placeholder="Enter Username" name="authorEmail" required>
+
+            <label for="psw">
+                <b>Password</b>
+            </label>
+            <input formControlName="password" type="password" placeholder="Enter Password" name="password" required>
+
+            <!-- <button type="submit" (click)="getLogin()">Login</button> -->
+            <input type="button" value="Login" (click)="getLogin()" />
+
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+            <span class="psw">
+                <a routerLink="/signup">Don't Have Account, SignUp here...</a>
+            </span>
+        </div>
+    </div>
+</form>

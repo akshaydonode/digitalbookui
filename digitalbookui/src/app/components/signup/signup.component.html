@@ -1,0 +1,29 @@
+<form  [formGroup]="signUpForm">
+    <div class="imgcontainer">
+        <div class="container">
+            <label for="uname">
+                <b>Name</b>
+            </label>
+            <input formControlName="authorName" type="text" placeholder="Enter Author Name" name="uname" required>
+
+            <label for="username">
+                <b>Username / Email-Id</b>
+            </label>
+            <input formControlName="authorEmail" type="text" placeholder="Enter Username" name="username" required>
+
+            <label for="psw">
+                <b>Password</b>
+            </label>
+            <input formControlName="password" type="password" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" (click)="signUp()">SignUp</button>
+
+        </div>
+
+        <div class="container" style="background-color:#f1f1f1">
+            <span class="psw">
+                <a routerLink="/signin">Already Have Account, SignIn here...</a>
+            </span>
+        </div>
+    </div>
+</form>
