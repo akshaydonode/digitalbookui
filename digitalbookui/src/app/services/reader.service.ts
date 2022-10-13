@@ -25,4 +25,5 @@ export class ReaderService {
   subscribeBook(subscribeEntity: SubscribeEntity) {
     return this.http.post(this.url+'book/subscribe',subscribeEntity);
   }
+ 
 }
