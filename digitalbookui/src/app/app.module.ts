@@ -11,15 +11,9 @@ import { SignupComponent } from './components/signup/signup.component';
 import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './components/home/home.component';
 import { AuthorHomeComponent } from './components/author-home/author-home.component';
-
-
-const routes:Routes = [
-  { path: "home", component: HomeComponent },
-  { path: "about", component: AboutComponent },
-  {path: "signin", component: SigninComponent},
-  {path: "signup", component: SignupComponent}
-
-];
+import { ReaderSignInComponent } from './components/reader-sign-in/reader-sign-in.component';
+import { AppRoutingModule } from './Routing/app-routing.module';
+import { SubscribeBookComponent } from './components/subscribe-book/subscribe-book.component';
 
 @NgModule({
   declarations: [
@@ -30,11 +24,13 @@ const routes:Routes = [
     SigninComponent,
     SignupComponent,
     HomeComponent,
-    AuthorHomeComponent
+    AuthorHomeComponent,
+    ReaderSignInComponent,
+    SubscribeBookComponent
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
     ReactiveFormsModule, 
     HttpClientModule
   ],

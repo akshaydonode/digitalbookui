@@ -66,7 +66,10 @@ export class SigninComponent {
     this.authorService.signIn(this.authorForm.value).subscribe((res: any) => {
       console.log("signIn",res);
        if(res.message === 'Author Login successfully'){
-         this.router.navigate(["/home",res]);
+         console.log("authorID",res.result.authorId);
+        //sessionStorage.setItem("authorID",res.result.authorId);
+        localStorage.setItem("authorID", res.result.authorId);
+         this.router.navigate(["/author-home"]);
        }else{
          alert(res.exception);
        }

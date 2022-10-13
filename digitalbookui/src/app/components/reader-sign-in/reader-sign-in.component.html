@@ -1,0 +1,36 @@
+<h2>Reader Sign In Page</h2>
+<form *ngIf="signInReaderFlag" [formGroup]="readerEmailForm">
+    <div class="imgcontainer">
+        <div class="container">
+            <label for="username">
+                <b>Enter EmailD</b>
+            </label>
+            <input formControlName="readerEmail" type="text" placeholder="Enter EmailId" name="readerEmail" required>
+
+            <input type="button" value="Login" (click)="getReaderLogin()" />
+
+            <div class="container" style="background-color:#f1f1f1">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+                <span class="psw">
+                    <input type="button" (click)="createReader()" value="Don't Have Account, SignUp here..."/>
+                </span>
+            </div>
+        </div>
+    </div>
+</form>
+<form *ngIf="createReaderFlag" [formGroup]="readerForm">
+    <div class="imgcontainer">
+        <div class="container">
+            <label for="username">
+                <b>Enter Name</b>
+            </label>
+            <input formControlName="readerName" type="text" placeholder="Enter Name" name="readerName" required>
+            <label for="username">
+                <b>Enter EmailD</b>
+            </label>
+            <input formControlName="readerEmail" type="text" placeholder="Enter EmailId" name="readerEmail" required>
+
+            <input type="button" value="SignUp" (click)="addReader()" />
+        </div>
+    </div>
+</form>

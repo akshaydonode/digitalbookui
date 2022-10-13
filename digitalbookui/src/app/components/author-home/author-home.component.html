@@ -1,1 +1,121 @@
-<p>author-home works!</p>
+<button (click)="createBookF()">
+    Create Book</button>
+<button (click)="getAuthorBook()">Get-Author-Book</button>
+
+<!-- [formGroup]="authorForm" -->
+<form *ngIf="createBookFlag" [formGroup]="bookCreateForm">
+    <div class="imgcontainer">
+        <div class="container">
+            <label for="title">
+                <b>Title</b>
+            </label>
+            <input formControlName="title" type="text" placeholder="Enter Title" name="title" required>
+
+            <label for="category">
+                <b>Category</b>
+            </label>
+            <input formControlName="category" type="text" placeholder="Enter Category" name="category" required>
+
+            <label for="publisher">
+                <b>Publisher</b>
+            </label>
+            <input formControlName="publisher" type="text" placeholder="Enter Publisher" name="publisher" required>
+
+            <label for="price">
+                <b>Price</b>
+            </label>
+            <input formControlName="price" type="number" placeholder="Enter price" name="price" required>
+            <label for="contents">
+                <b>Contents</b>
+            </label>
+            <input formControlName="contents" type="text" placeholder="Enter contents" name="contents" required>
+
+            <label for="active">
+                <b>Active</b>
+            </label>
+            <input formControlName="active" type="boolean" placeholder="Enter active" name="active" required>
+            <!-- <label for="authorId">
+                                    <b>Author ID</b>
+                                </label>
+                                <input formControlName="authorId" type="number" value="{{authorIdfromSession}}"  name="authorId" required>      -->
+
+            <!-- <button type="submit" (click)="getLogin()">Login</button> -->
+            <input type="button" value="Create Book" (click)="createBook()" />
+
+
+        </div>
+
+    </div>
+</form>
+
+<table *ngIf="showBook" border="1">
+    <thead>
+        <tr>
+            <!-- //<tr> -->
+            <!-- <th>S.No.</th> -->
+            <th>Title</th>
+            <th>Price</th>
+            <th>Author Id</th>
+            <th>category</th>
+            <th>Content</th>
+            <th>Published Date</th>
+            <th>Publisher</th>
+            <th>Updated Date</th>
+            <th>Book Active</th>
+            
+            <!-- </tr> -->
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <!-- <div *ngFor="let b of book"> -->
+            <!-- <tr></tr> -->
+            <!-- <td>{{i+1}}</td> -->
+            <td>{{book.title}}</td>
+            <td>{{book.price}}</td>
+            <td>{{book.authorId}}</td>
+            <td>{{book.category}}</td>
+            <td>{{book.contents}}</td>
+            <td>{{book.published}}</td>
+            <td>{{book.publisher}}</td>
+            <td>{{book.updateDate}}</td>
+            <td>{{book.active}}</td>
+            <!-- </div> -->
+        </tr>
+    </tbody>
+</table>
+<table *ngIf="getAuthorBookFlag" border="1">
+    <thead>
+        <tr>
+            <th>S.No.</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Author Name</th>
+            <th>category</th>
+            <th>Content</th>
+            <th>Published Date</th>
+            <th>Publisher</th>
+            <th>Updated Date</th>
+            <th>Book Active</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let b of books;let i=index">
+            <td>{{i+1}}</td>
+            <td>{{b.title}}</td>
+            <td>{{b.price}}</td>
+            <td>{{b.authorName}}</td>
+            <td>{{b.category}}</td>
+            <td>{{b.contents}}</td>
+            <td>{{b.published}}</td>
+            <td>{{b.publisher}}</td>
+            <td>{{b.updateDate}}</td>
+            <td>{{b.active}}</td>
+            <td> <button type="submit" (click)="blockBook(b.bookId)">Block Book</button></td>
+
+            <!-- </div> -->
+        </tr>
+    </tbody>
+</table>

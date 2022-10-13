@@ -1,35 +1,35 @@
-
- <H2>Search Book</H2>
- <p>Search Book By Below fields</p>
- <form  [formGroup]="homeSearchBook">
+<H2>
+    Search Book</H2>
+<p>Search Book By Below fields</p>
+<form [formGroup]="homeSearchBook">
     <div class="imgcontainer">
         <!-- <div class="container"> -->
-            <label for="uname">
-                <b>Author Name</b>
-            </label>
-            <input formControlName="authorName" type="text" placeholder="Enter Author Name" name="uname">
+        <label for="uname">
+            <b>Author Name</b>
+        </label>
+        <input formControlName="authorName" type="text" placeholder="Enter Author Name" name="uname">
 
-            <label for="category">
-                <b>Book Category</b>
-            </label>
-            <input formControlName="category" type="text" placeholder="Enter category like comic,horro,etc" name="category">
+        <label for="category">
+            <b>Book Category</b>
+        </label>
+        <input formControlName="category" type="text" placeholder="Enter category like comic,horro,etc" name="category">
 
-            <label for="publisher">
-                <b>Book Publisher</b>
-            </label>
-            <input formControlName="publisher" type="text" placeholder="Enter Publisher Name" name="publisher" >
+        <label for="publisher">
+            <b>Book Publisher</b>
+        </label>
+        <input formControlName="publisher" type="text" placeholder="Enter Publisher Name" name="publisher">
 
-            <label for="title">
-                <b>Book Title</b>
-            </label>
-            <input formControlName="title" type="text" placeholder="Enter Book Title" name="title" >
+        <label for="title">
+            <b>Book Title</b>
+        </label>
+        <input formControlName="title" type="text" placeholder="Enter Book Title" name="title">
 
-            <label for="price">
-                <b>Book Price</b>
-            </label>
-            <input formControlName="price" type="text" placeholder="Enter Book Price" name="price" >
+        <label for="price">
+            <b>Book Price</b>
+        </label>
+        <input formControlName="price" type="text" placeholder="Enter Book Price" name="price">
 
-            <button type="submit" (click)="searchBook()">Search Book</button>
+        <button type="submit" (click)="searchBook()">Search Book</button>
 
         <!-- </div> -->
 
@@ -40,22 +40,38 @@
 <table *ngIf="flag" border="1">
     <thead>
         <tr>
-            <th>S.No.</th>
-            <th>Title</th>
-            <th>Price</th>
-            <th>Author Name</th>
-            <th>category</th>
-            <th>Content</th>
-            <th>Published Date</th>
-            <th>Publisher</th>
-            <th>Updated Date</th>
-            <th>Book Active</th>
+            <!-- //<tr> -->
+                <th>S.No.</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Author Name</th>
+                <th>category</th>
+                <th>Content</th>
+                <th>Published Date</th>
+                <th>Publisher</th>
+                <th>Updated Date</th>
+                <th>Book Active</th>
+                <th>Action</th>
+            <!-- </tr> -->
+
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let book of books;let i=index">
-            <td>{{i+1}}</td>
-            <td>{{book.title}}</td>
+            
+            <!-- <div *ngFor="let book of books"> -->
+                    <tr *ngFor="let b of books;let i=index">
+                <td>{{i+1}}</td>
+                <td>{{b.title}}</td>
+                <td>{{b.price}}</td>
+                <td>{{b.authorName}}</td>
+                <td>{{b.category}}</td>
+                <td>{{b.contents}}</td>
+                <td>{{b.published}}</td>
+                <td>{{b.publisher}}</td>
+                <td>{{b.updateDate}}</td>
+                <td>{{b.active}}</td>
+               <td> <button type="submit" (click)="subscribeBook(b.bookId)">Subscribe Book</button></td>
+                <!-- <td>{{book.title}}</td>
             <td>{{book.price}}</td>
             <td>{{book.authorName}}</td>
             <td>{{book.category}}</td>
@@ -63,7 +79,10 @@
           <td>{{book.published}}</td>
           <td>{{book.publisher}}</td>
           <td>{{book.updateDate}}</td>
-          <td>{{book.active}}</td>   
+          <td>{{book.active}}</td> -->
+
+            
         </tr>
+    <!-- </div> -->
     </tbody>
 </table>

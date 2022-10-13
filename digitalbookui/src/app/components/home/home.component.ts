@@ -13,7 +13,8 @@ import { BookEntity } from '../../interface/BookEntity';
 export class HomeComponent implements OnInit {
 
  book:any;
- books:BookEntity[]=[];
+ //books:BookEntity[]=[];
+ books:any[]=[];
   homeSearchBook: FormGroup;
   flag: boolean = false;
 
@@ -39,9 +40,9 @@ export class HomeComponent implements OnInit {
       next: (res:any)=>{
 
         console.log(res);
-        console.log(res.response);
+        console.log(res.resultArray);
         if(res.message === 'Book Found Successfully'){
-          this.books = res.response;
+          this.books = res.resultArray;
           console.log("book obj",this.books);
           this.flag =true;
 
@@ -64,6 +65,13 @@ export class HomeComponent implements OnInit {
         console.log(err)
     }
     })
+  }
+  subscribeBook(booId:string){
+    console.log("got book id",booId);
+    sessionStorage.setItem("bookId",booId);
+    localStorage.setItem("bookId",booId);
+    
+    this.router.navigate(["/reader-signIn"]);
   }
 
 }
