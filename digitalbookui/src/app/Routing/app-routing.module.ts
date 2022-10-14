@@ -7,17 +7,19 @@ import { SignupComponent } from '../components/signup/signup.component';
 import { AuthorHomeComponent } from '../components/author-home/author-home.component';
 import { ReaderSignInComponent } from '../components/reader-sign-in/reader-sign-in.component';
 import { SubscribeBookComponent } from '../components/subscribe-book/subscribe-book.component';
+import { ReaderdashvordSigninComponent } from '../components/readerdashvord-signin/readerdashvord-signin.component';
 
 
 const routes:Routes = [
-    { path: "*", component: HomeComponent },
+    { path: "", component: HomeComponent },
     { path: "home", component: HomeComponent },
     { path: "about", component: AboutComponent },
     {path: "signin", component: SigninComponent},
     {path: "signup", component: SignupComponent},
     {path:"author-home", component:AuthorHomeComponent},
     {path:"reader-signIn",component: ReaderSignInComponent},
-    {path:"subscribe", component:SubscribeBookComponent}
+    {path:"subscribe", component:SubscribeBookComponent},
+    {path:"readerdash-signIn",component:ReaderdashvordSigninComponent}
   
   ];
 

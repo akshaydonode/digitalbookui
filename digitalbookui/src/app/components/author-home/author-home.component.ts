@@ -13,9 +13,10 @@ export class AuthorHomeComponent implements OnInit {
   showBook: boolean = false;
   authorId: number = 0;
   bookCreateForm: FormGroup;
-  book:any;
-  books: any[]=[];
+  book: any;
+  books: any[] = [];
   authorIdfromSession: any;
+  bookEntity: any;
 
   constructor(
     private bookService: BookService
@@ -36,12 +37,12 @@ export class AuthorHomeComponent implements OnInit {
 
   createBookF() {
     this.createBookFlag = true;
-    this.getAuthorBookFlag=false;
+    this.getAuthorBookFlag = false;
     this.authorIdfromSession = localStorage.getItem("authorID");
     console.log("author id", this.authorIdfromSession);
   }
   getAuthorBook() {
-    this.createBookFlag =false;
+    this.createBookFlag = false;
     this.authorIdfromSession = localStorage.getItem("authorID");
     console.log(this.authorIdfromSession);
     this.bookService.getAuthorBooks(this.authorIdfromSession).subscribe((res: any) => {
@@ -72,11 +73,6 @@ export class AuthorHomeComponent implements OnInit {
       } else {
         alert(res.exception);
       }
-      // if (res != null) {
-      // //  console.log("token", res);
-      // } else {
-
-      // }
     },
       (err: any) => {
         console.log(err);
@@ -84,7 +80,50 @@ export class AuthorHomeComponent implements OnInit {
       }
     );
   }
-  blockBook(bookId:any){
+  blockBook(bookId: any, authorId: any, isActive: any) {
+    console.log("book data");
+    this.bookEntity = {
+      bookId: bookId,
+      authorId: authorId
+    }
+    if (isActive) {
+      console.log("book data", this.bookEntity);
 
+      this.bookService.blockBook(this.bookEntity).subscribe((res: any) => {
+
+        console.log(res);
+        if (res.message === 'Book Blocked Successfullly') {
+          this.getAuthorBook();
+        } else {
+          alert(res.exception);
+        }
+      },
+        (err: any) => {
+          console.log(err);
+
+        }
+      );
+    } else {
+      console.log("book data", this.bookEntity);
+
+      this.unblockBook(this.bookEntity)
+    }
+
+  }
+  unblockBook(bookEntity: any) {
+    this.bookService.unBlock(this.bookEntity).subscribe((res: any) => {
+
+      console.log(res);
+      if (res.message === 'Book Un-Blocked Successfullly') {
+        this.getAuthorBook();
+      } else {
+        alert(res.exception);
+      }
+    },
+      (err: any) => {
+        console.log(err);
+
+      }
+    );
   }
 }

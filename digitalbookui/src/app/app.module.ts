@@ -14,6 +14,7 @@ import { AuthorHomeComponent } from './components/author-home/author-home.compon
 import { ReaderSignInComponent } from './components/reader-sign-in/reader-sign-in.component';
 import { AppRoutingModule } from './Routing/app-routing.module';
 import { SubscribeBookComponent } from './components/subscribe-book/subscribe-book.component';
+import { ReaderdashvordSigninComponent } from './components/readerdashvord-signin/readerdashvord-signin.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { SubscribeBookComponent } from './components/subscribe-book/subscribe-bo
     HomeComponent,
     AuthorHomeComponent,
     ReaderSignInComponent,
-    SubscribeBookComponent
+    SubscribeBookComponent,
+    ReaderdashvordSigninComponent
   ],
   imports: [
     BrowserModule,

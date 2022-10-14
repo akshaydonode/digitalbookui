@@ -11,6 +11,7 @@
             <th>Published Date</th>
             <th>Publisher</th>
             <th>Updated Date</th>
+            <th>Action</th>
             <!-- <th>Action</th> -->
         </tr>
     </thead>
@@ -21,11 +22,11 @@
             <td>{{b.price}}</td>
             <td>{{b.authorName}}</td>
             <td>{{b.catogory}}</td>
-            <td>{{b.contents}}</td>
+            <td>{{b.content}}</td>
             <td>{{b.published}}</td>
             <td>{{b.publisher}}</td>
-            <td>{{b.updateDate}}</td>
-            <!-- <td> <button type="submit" (click)="blockBook(b.bookId)">Block Book</button></td> -->
+            <td>{{b.updatedDate}}</td>
+            <td> <button type="submit" (click)="cancelSubscription(b.bookId,b.readerId)">Cancel Subscription</button></td>
 
             <!-- </div> -->
         </tr>

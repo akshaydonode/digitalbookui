@@ -25,5 +25,10 @@ export class ReaderService {
   subscribeBook(subscribeEntity: SubscribeEntity) {
     return this.http.post(this.url+'book/subscribe',subscribeEntity);
   }
+
+  cancelSubscription(bookId:any){
+    let emailID = localStorage.getItem("readerEmail");
+    return this.http.get<any>(`http://localhost:9090/reader/${emailID}/books/${bookId}/refund`);
+  }
  
 }
